@@ -10,4 +10,7 @@
 *= require admin/dataTables.bootstrap.min
 *= require admin/dataTables.responsive
 *= require admin/sb-admin-2
+*= require toastr
+*= require admin/canvasjs.min
+*= require admin/select2.min
 */
