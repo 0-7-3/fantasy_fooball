@@ -1,0 +1,34 @@
+<div class="panel-body">
+  <div class="dataTable_wrapper">
+    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+      <thead>
+          <tr>
+              <th>All Teams</th>
+              <th>Team Name</th>
+              <th class="text-center">Actions</th>
+              
+          </tr>
+      </thead>
+      <tbody>
+
+        <% @admin_teams.each_with_index do |team,index| %>
+
+          <tr class="odd gradeX">
+            <td><%= index+1 %></td>
+            <td><%= team.name %></td>
+            <td class="text-center">
+                <span>
+                <%= link_to '', edit_admin_team_path(team) ,class: "edit fa fa-edit icon_link with-tip no-text", title: "edit"%>&nbsp; &nbsp;
+                </span>
+                <span>
+               
+                <%= link_to '',  admin_team_path(team), method: :delete, data: { confirm: 'Are you sure?' } ,class: "delete fa fa-trash icon_link with-tip no-text" , title: "delete" %>
+                    
+                </span>
+            </td>
+          </tr>
+        <%end%>                                                                             
+      </tbody>
+    </table>
+  </div>
+</div>

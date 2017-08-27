@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <%= params[:action]== 'new' ? 'New ' : 'Edit'%> Match
+     </div>
+     <div class="panel-body">
+      <div class="row">
+        <%= nested_form_for [:admin, @admin_match] do |f| %>
+        <div class="col-md-6">
+          <%= f.fields_for :games do |ff|%>
+          <section>
+          <div class="form-group">
+            <%= ff.label :chalanger_team %>
+            <%= ff.select :chalanger_team_id, options_from_collection_for_select(Team.all, :id,:name,ff.object.chalanger_team_id),{} ,:class=> ' ' %>
+          </div>
+          <div class="form-group">
+            <%= ff.label :oponent_team %>
+            <%= ff.select :oponent_team_id, options_from_collection_for_select(Team.all, :id,:name,ff.object.oponent_team_id),{} ,:class=> ' ' %>
+          </div>
+          <div class="form-group">
+          <%= ff.label :winner_team %>
+            <%= ff.select :winner_team_id, options_from_collection_for_select(Team.all, :id,:name,ff.object.winner_team_id),{} ,:class=> ' ' %>
+          </div>
+          <%= ff.link_to_remove 'Remove Game' %>
+          </section>
+          <%end%>
+          <p><%= f.link_to_add "Add a Game", :games %></p>
+          <%= f.submit 'Submit Button', class: "btn btn-default" %>
+          <button type="reset" class="btn btn-default">Reset Button</button>
+          <a  href="/admin/users" class="btn btn-default">Back</a>
+        </div>
+
+        <%end%>
+      </div>
+    </div>        
+  </div>
+</div>    
+</div>
+

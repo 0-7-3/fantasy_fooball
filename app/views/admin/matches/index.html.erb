@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">All Matches</h1>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Matches
+        <%= link_to '<i class="fa fa-plus"></i> Add New Match'.html_safe, new_admin_match_path, class: "btn btn-default pull-right add-btn" %>
+      </div>
+      <%= render partial: 'all_matches'%>
+    </div>
+  </div>
+</div>
