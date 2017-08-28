@@ -4,7 +4,8 @@ class Admin::MatchesController < AdminController
   # GET /admin/matches
   # GET /admin/matches.json
   def index
-    @admin_matches = Match.joins(:games).all
+
+    @admin_matches = Match.all
   end
 
   # GET /admin/matches/1
@@ -26,8 +27,6 @@ class Admin::MatchesController < AdminController
   # POST /admin/matches.json
   def create
     @admin_match = Match.new(admin_match_params)
-    byebug
-
     respond_to do |format|
       if @admin_match.save
         format.html { redirect_to admin_matches_url, notice: 'Match was successfully created.' }
@@ -71,6 +70,6 @@ class Admin::MatchesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_match_params
-       params.require(:match).permit(games_attributes: [:chalanger_team_id, :oponent_team_id,:winner_team_id,:_destory])
+      params.require(:match).permit( games_attributes: [:id,:chalanger_team_id, :oponent_team_id,:winner_team_id,:_destroy])
     end
 end

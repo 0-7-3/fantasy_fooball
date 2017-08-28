@@ -17,7 +17,7 @@
 
           <tr class="odd gradeX">
             <td><%= index+1 %></td>
-            <td><%= match.try(:winner) %></td>
+            <td><%= match.try(:match_winner) .try(:name)%></td>
             <td><%#= match.games.winner_team.name %></td>
             <td><%= match.games.count %></td>
             <td class="text-center">

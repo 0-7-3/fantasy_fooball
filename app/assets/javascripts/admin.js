@@ -13,4 +13,5 @@
 *= require toastr
 *= require admin/canvasjs.min
 *= require admin/select2.min
+*= require jquery_nested_form
 */

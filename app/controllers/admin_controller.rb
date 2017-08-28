@@ -11,6 +11,9 @@ class AdminController < ApplicationController
   end
 
 	def index
-		
+		@total_team = Team.all
+		@matches = Match.all
+		@games = Game.all
+		@top_five = Team.sort_teams.take(5)
 	end
 end

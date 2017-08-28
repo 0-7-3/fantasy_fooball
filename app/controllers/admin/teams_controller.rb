@@ -4,7 +4,7 @@ class Admin::TeamsController < AdminController
   # GET /admin/teams
   # GET /admin/teams.json
   def index
-    @admin_teams = Team.all
+    @admin_teams = Team.sort_teams
   end
 
   # GET /admin/teams/1
